@@ -1,0 +1,40 @@
+/* app css stylesheet */
+html, body{
+  font-family: "HelveticaNeue-Light", Arial, sans-serif;
+}
+.page {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+.header {
+   position: absolute;
+   top: 0px;
+   height: 40px;
+   left: 0px;
+   right: 0px;
+  background-color: #14CCC6;
+ }
+
+.page-body {
+  position: absolute;
+  top: 40px;
+  bottom: 80px;
+  left: 0px;
+  right: 0px;
+
+}
+
+.footer {
+  position: absolute;
+  bottom: 0px;
+  height: 80px;
+  left: 0px;
+  right: 0px;
+  background-color: #14CCC6;
+}
+
+
