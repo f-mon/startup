@@ -4,17 +4,9 @@
  <div class="title">Rumors</div>
     </div>
     <div class="rumors-container">
-    <div class="page-body" id="rumors">
-        <div ng-repeat="rumor in rumors" ng-class="{'double-width': rumor.doubleWidth, 'double-height': rumor.doubleHeight}" class="rumor messages">
-            <div class="sender lp">US</div>
-            <div class="msg">{{rumor.msg}}</div>
-            <div class="db"><span class=" icon-volume">{{rumor.order}} db</div>
-            <div class="distance"><span class="icon-location" style="color: red"></span>32 mt</div>
-            <div class="commentsCount"><span class="icon-pencil" style="color: #f2f2f2"></span>12</div>
-            <div class="echosCount"><span class=" icon-echo" style="font-size: 1em"></span>7</div>
-            <div class="order">{{rumor.order}}</div>
+        <div class="page-body" id="rumors">
+
         </div>
-    </div>
     </div>
     <div class="footer">
         <input class="echoText" ng-keyup='key($event)'  placeholder="fai rumore!" type="text" ng-model="newRumor.msg">
