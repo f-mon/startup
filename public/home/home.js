@@ -48,6 +48,23 @@ angular.module('rumors.home', ['ngRoute', 'ngResource'])
 
         $scope.newRumor = {};
 
+    var container = $('#rumors').isotope({
+      itemSelector: '.rumor',
+      layoutMode: 'masonry',
+      masonry: {
+        columnWidth: '.grid-sizer'
+      },
+      getSortData: {
+        name: '.db', // text from querySelector
+        category: '[data-category]', // value of attribute
+        weight: function (itemElem) { // function
+          var weight = $(itemElem).find('.db').text();
+          return parseFloat(weight.replace(/[\(\)]/g, ''));
+        }
+      },
+      sortBy: 'db'
+    });
+
         $scope.pushRumor = function() {
             getPosition().then(function(pos){
                 $scope.newRumor.id = guid();

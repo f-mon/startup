@@ -1,46 +1,126 @@
 /* app css stylesheet */
-html, body{
-  font-family: "HelveticaNeue-Light", Arial, sans-serif;
+html, body {
+    font-family: "HelveticaNeue-Light", Arial, sans-serif;
 }
+
 .page {
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    overflow: hidden;
 }
 
 .header {
-   position: absolute;
-   top: 0px;
-   height: 40px;
-   left: 0px;
-   right: 0px;
-  background-color: #14CCC6;
- }
+    position: absolute;
+    top: 0px;
+    height: 40px;
+    left: 0px;
+    right: 0px;
+    background-color: #14CCC6;
+}
 
-.header >.title{
+.header > .title {
     color: white;
     text-align: center;
     line-height: 40px;
+    box-shadow: 2px 0px 2px #868686;
 }
 
 .page-body {
-  position: absolute;
-  top: 40px;
-  bottom: 80px;
-  left: 0px;
-  right: 0px;
+    position: absolute;
+    top: 0px;
+    bottom: 80px;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+}
 
+.rumors-container{
+    position: absolute;
+    display: block;
+    top: 40px;
+    bottom: 80px;
+    left: 0px;
+    right: 0px;
+    overflow-y: auto;
 }
 
 .footer {
-  position: absolute;
-  bottom: 0px;
-  height: 80px;
-  left: 0px;
-  right: 0px;
-  background-color: #14CCC6;
+    position: absolute;
+    bottom: 0px;
+    height: 80px;
+    left: 0px;
+    right: 0px;
+    background-color: #14CCC6;
+}
+
+.grid-sizer {
+    width: 50%;
+    height: 100px;
+}
+
+.rumor {
+    position: relative;
+    box-sizing: border-box;
+    padding: 8px;
+    display: inline-block;
+    width: 50%;
+    height: 100px;
+    background-color: #fafafa;
+}
+
+.rumor.double-width{
+    width: 100%;
+}
+
+.rumor.double-height{
+    height: 100px;
+}
+
+.page-body > *:nth-child(0) {
+    background: #329AFF
+    color: white;
+}
+
+.page-body > *:nth-child(1) {
+    background: #334D66
+}
+
+.page-body > *:nth-child(4) {
+    background: #14CCC6
+}
+
+.page-body > *:nth-child(3) {
+    background: #D26649
+}
+
+.page-body > *:nth-child(5) {
+    background: #FF3F32
+}
+
+.sender {
+    display: inline-block;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: #105cb6;
+    text-align: center;
+    color: #ffffff;
+    line-height: 40px;
+}
+
+.msg {
+}
+
+.db {
+}
+
+.echoButton{
+    width: 100px;
+    height: 40px;
+    background-color: #fafafa;
 }
 
 
