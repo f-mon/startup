@@ -6,10 +6,9 @@
 
     <div class="page-body">
 
-        <div class="rumor">mock message</div>
-        <div class="rumor">mock message</div>
-        <div class="rumor">mock message</div>
-
+        <div ng-repeat="rumor in rumors" class="rumor">
+            {{rumor.msg}}
+        </div>
 
     </div>
     <div class="footer">
