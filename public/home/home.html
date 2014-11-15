@@ -4,10 +4,12 @@
  <div class="title">Rumors</div>
     </div>
 
-    <div class="page-body">
-
-        <div ng-repeat="rumor in rumors" class="rumor">
-            {{rumor.msg}}
+    <div class="page-body" id="rumors">
+        <div class="grid-sizer"></div>
+        <div ng-repeat="rumor in rumors" class="rumor messages" data-category="messages">
+            <div class="sender">{{rumor.sender}}</div>
+            <div class="msg">{{rumor.msg}}</div>
+            <div class="db">{{rumor.db}}</div>
         </div>
 
     </div>
@@ -17,5 +19,4 @@
         <button>send</button>
 
     </div>
-
 </div>
