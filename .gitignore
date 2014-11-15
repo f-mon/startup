@@ -1,1 +1,6 @@
 .idea/*
+node_modules/**
+public/bower_components/**
+**/webstorm files/**
+.DS_Store
+**/npm-debug.log
