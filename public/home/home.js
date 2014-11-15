@@ -46,6 +46,13 @@ angular.module('rumors.home', ['ngRoute', 'ngResource'])
 
         $scope.newRumor = {};
 
+      $scope.key = function(evt){
+          console.log(evt.keyCode);
+          if(evt.keyCode == 13){
+              $scope.pushRumor();
+          }
+      }
+
         var isoContainer = $('#rumors').isotope({
           itemSelector: '.rumor',
           layoutMode: 'masonry',

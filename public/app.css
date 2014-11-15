@@ -72,8 +72,13 @@ html, body {
     padding: 4px;
     width: 50%;
     height: 100px;
-    background-color: #fafafa;
+    background-color: #088AD9;
     overflow: hidden;
+}
+
+.rumor > * {
+    font-size: 0.7em;
+    color: white;
 }
 
 .rumor.double-width{
@@ -84,70 +89,36 @@ html, body {
     height: 100px;
 }
 
-.page-body > *:nth-child(0) {
-    background: #088AD9
-    color: white;
-}
-
-.page-body > *:nth-child(1) {
-    background: #0BBDE3
-}
-
-.page-body > *:nth-child(4) {
-    background: #14CCC6
-}
-
-.page-body > *:nth-child(3) {
-    background: #0BE3AD
-}
-
-.page-body > *:nth-child(5) {
-    background: #02D974
-}
-
-.page-body > *:nth-child(6) {
-    background: #088AD9
-color: white;
-}
-
-.page-body > *:nth-child(7) {
-    background: #0BBDE3
-}
-
-.page-body > *:nth-child(8) {
-    background: #14CCC6
-}
-
-.page-body > *:nth-child(9) {
-    background: #0BE3AD
-}
-
-.page-body > *:nth-child(10) {
-    background: #02D974
-}
 
 .sender {
+    box-sizing: border-box;
     display: inline-block;
     border-radius: 50%;
+    box-shadow: 2px 2px 2px black;
     width: 40px;
     height: 40px;
-    background-color: #105cb6;
+    background-color: #4617b4;
     text-align: center;
     color: #ffffff;
     line-height: 40px;
 }
 
 .sender.lp{
-    background-image: url('img/photo.jpg');
+    background-image: url('img/rumoors-white.svg');
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 24px;
     background-position: center;
     color: rgba(0,0,0,0);
 }
 
 .msg {
+    margin-top: 2px;
     color: #ffffff;
     font-size: 0.8em;
+    max-height: 32px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
 }
 
 .db {
@@ -160,10 +131,23 @@ color: white;
     line-height: 32px;
 }
 
-.echoButton{
-    width: 100px;
-    height: 40px;
+.order{display: none}
+
+.distance, .commentsCount, .echosCount{    display: inline-block;}
+
+.echoText {
+
+    width: 50%;
+    max-width: 200px;
+
+}
+
+.echoButton {
+
+    width: 64px;
     background-color: #fafafa;
+    border: 0;
+
 }
 
 
