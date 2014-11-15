@@ -74,8 +74,13 @@ html, body {
     display: inline-block;
     width: 50%;
     height: 100px;
-    background-color: #fafafa;
+    background-color: #088AD9;
     overflow: hidden;
+}
+
+.rumor > * {
+    font-size: 0.7em;
+    color: white;
 }
 
 .rumor.double-width{
@@ -95,7 +100,7 @@ html, body {
     background: #0BBDE3
 }
 
-.page-body > *:nth-child(4) {
+.page-body > *:nth-child(2) {
     background: #14CCC6
 }
 
@@ -103,30 +108,31 @@ html, body {
     background: #0BE3AD
 }
 
-.page-body > *:nth-child(5) {
+.page-body > *:nth-child(4) {
     background: #02D974
 }
 
-.page-body > *:nth-child(6) {
+.page-body > *:nth-child(5) {
     background: #088AD9
 color: white;
 }
 
-.page-body > *:nth-child(7) {
+.page-body > *:nth-child(6) {
     background: #0BBDE3
 }
 
-.page-body > *:nth-child(8) {
+.page-body > *:nth-child(7) {
     background: #14CCC6
 }
 
-.page-body > *:nth-child(9) {
+.page-body > *:nth-child(8) {
     background: #0BE3AD
 }
 
-.page-body > *:nth-child(10) {
+.page-body > *:nth-child(9) {
     background: #02D974
 }
+
 
 .sender {
     display: inline-block;
@@ -161,6 +167,10 @@ color: white;
     height: 32px;
     line-height: 32px;
 }
+
+.distance, .commentsCount, .echosCount{    display: inline-block;}
+
+
 
 .echoButton{
     width: 100px;
