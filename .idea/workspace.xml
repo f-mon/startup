@@ -4,21 +4,11 @@
     <bookmark url="file://$PROJECT_DIR$/app.js" line="24" mnemonic="7" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f626f7ad-4ec4-4d54-81e1-fae1949052d9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/color.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app.css" afterPath="$PROJECT_DIR$/public/app.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/home/home.html" afterPath="$PROJECT_DIR$/public/home/home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/home/home.js" afterPath="$PROJECT_DIR$/public/home/home.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/rumors.js" afterPath="$PROJECT_DIR$/routes/rumors.js" />
-    </list>
-    <list id="65c0d3c8-3ad4-408d-a0b6-e88d8702bfa4" name="New changelist" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="f626f7ad-4ec4-4d54-81e1-fae1949052d9" name="Default" comment="" />
+    <list id="65c0d3c8-3ad4-408d-a0b6-e88d8702bfa4" name="New changelist" comment="" />
     <ignored path="startupgit.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <file path="$PROJECT_DIR$/.idea/workspace.xml" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,24 +203,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="startupgit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rumors" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="img" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -360,10 +332,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="46" y="23" width="1398" height="877" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32866243" sideWeight="0.4996369" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32866243" sideWeight="0.4996369" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32866243" sideWeight="0.4996369" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924962" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27261147" sideWeight="0.5003631" order="11" side_tool="true" content_ui="tabs" />
