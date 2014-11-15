@@ -19,6 +19,12 @@ html, body{
   background-color: #14CCC6;
  }
 
+.header >.title{
+    color: white;
+    text-align: center;
+    line-height: 40px;
+}
+
 .page-body {
   position: absolute;
   top: 40px;
