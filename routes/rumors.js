@@ -21,6 +21,9 @@ router.get('/locals/:lat/:long', function(req, res) {
     return aScore-bScore;
   });
   var portions = results.slice(0,10);
+  for (var i=0; i<portions.length; i++) {
+    portions[i].order=i;
+  }
   res.json(portions);
 });
 

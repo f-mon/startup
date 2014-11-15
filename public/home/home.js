@@ -48,22 +48,22 @@ angular.module('rumors.home', ['ngRoute', 'ngResource'])
 
         $scope.newRumor = {};
 
-    var container = $('#rumors').isotope({
-      itemSelector: '.rumor',
-      layoutMode: 'masonry',
-      masonry: {
-        columnWidth: '.grid-sizer'
-      },
-      getSortData: {
-        name: '.db', // text from querySelector
-        category: '[data-category]', // value of attribute
-        weight: function (itemElem) { // function
-          var weight = $(itemElem).find('.db').text();
-          return parseFloat(weight.replace(/[\(\)]/g, ''));
-        }
-      },
-      sortBy: 'db'
-    });
+        var isoContainer = $('#rumors').isotope({
+          itemSelector: '.rumor',
+          layoutMode: 'masonry',
+          masonry: {
+            columnWidth: '.grid-sizer'
+          },
+          getSortData: {
+            name: '.db', // text from querySelector
+            category: '[data-category]', // value of attribute
+            weight: function (itemElem) { // function
+              var weight = $(itemElem).find('.db').text();
+              return parseFloat(weight.replace(/[\(\)]/g, ''));
+            }
+          },
+          sortBy: 'db'
+        });
 
         $scope.pushRumor = function() {
             getPosition().then(function(pos){
@@ -89,6 +89,7 @@ angular.module('rumors.home', ['ngRoute', 'ngResource'])
                 }
             }
             removeObsoleteRumors();
+            isoContainer.isotope();
         };
 
         var mergeRumor = function(newRumor) {
@@ -103,6 +104,7 @@ angular.module('rumors.home', ['ngRoute', 'ngResource'])
         };
 
         var updateRumor = function(oldRumor,newRumor) {
+            oldRumor.order = newRumor.order;
             oldRumor.version = count;
         };
 
