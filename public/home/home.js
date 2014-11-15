@@ -54,15 +54,10 @@ angular.module('rumors.home', ['ngRoute', 'ngResource'])
           masonry: {
             columnWidth: '.grid-sizer'
           },
-          getSortData: {
-            name: '.db', // text from querySelector
-            category: '[data-category]', // value of attribute
-            weight: function (itemElem) { // function
-              var weight = $(itemElem).find('.db').text();
-              return parseFloat(weight.replace(/[\(\)]/g, ''));
-            }
-          },
-          sortBy: 'db'
+            getSortData: {
+                number: '.number parseInt'
+            },
+            sortBy: ['number']
         });
 
         $scope.pushRumor = function() {
@@ -89,7 +84,7 @@ angular.module('rumors.home', ['ngRoute', 'ngResource'])
                 }
             }
             removeObsoleteRumors();
-            isoContainer.isotope();
+            isoContainer.isotope({ sortBy: ["number"] });
         };
 
         var mergeRumor = function(newRumor) {
