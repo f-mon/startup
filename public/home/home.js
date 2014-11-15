@@ -44,20 +44,18 @@ angular.module('rumors.home', ['ngRoute', 'ngResource'])
     }])
     .controller('HomeCtrl', ['$scope','rumorsService','$timeout','$q','getPosition', function ($scope,rumorsService,$timeout,$q,getPosition) {
 
-        $scope.rumors = [];
-
         $scope.newRumor = {};
 
         var isoContainer = $('#rumors').isotope({
           itemSelector: '.rumor',
           layoutMode: 'masonry',
           masonry: {
-            columnWidth: '.grid-sizer'
+                columnWidth: ""
           },
-            getSortData: {
-                number: '.number parseInt'
-            },
-            sortBy: ['number']
+          getSortData: {
+                number: '[order]'
+          },
+          sortBy: ['number']
         });
 
         $scope.pushRumor = function() {
@@ -73,43 +71,64 @@ angular.module('rumors.home', ['ngRoute', 'ngResource'])
         var count=0;
 
         var mergeRumors = function(newRumors) {
-
             console.log("ritornati: ",newRumors.length);
             count=count+1;
             for (var i=0; i<newRumors.length; i++) {
                 var r = newRumors[i];
                 if (!mergeRumor(r)) {
                     r.version= count;
-                    $scope.rumors.push(r);
+                    r.isNew=true;
+                    var el = createRumorElement(r);
+                    isoContainer.isotope("insert",el);
                 }
             }
             removeObsoleteRumors();
-            isoContainer.isotope({ sortBy: ["number"] });
+            isoContainer.isotope({
+                sortBy: 'number'
+            });
+            isoContainer.isotope('reloadItems');
+            isoContainer.isotope('layout');
+        };
+
+        var createRumorElement = function(r) {
+            var el = $("<div></div>");
+            el.attr("id","rumor_"+ r.id);
+           // el.addClass("double-width");
+            //el.addClass("double-height");
+            el.addClass("isNew");
+            el.addClass("rumor");
+            el.addClass("messages");
+            el.css("display","none");
+            el.attr("order",r.order);
+            el.attr("version",r.version);
+            var html= "<div class='sender lp'>US</div>"+
+                "<div class='msg'>"+r.msg+"</div>"+
+                "<div class='db'><span class='icon-volume'>"+r.order+"+db</div>"+
+                "<div class='distance'><span class='icon-location' style='color: red'></span>32 mt</div>"+
+                "<div class='commentsCount'><span class='icon-pencil' style='color: #f2f2f2'></span>12</div>"+
+                "<div class='echosCount'><span class='icon-echo' style='font-size: 1em'></span>7</div>";
+            el.append(html);
+            el.element=el;
+            return el;
         };
 
         var mergeRumor = function(newRumor) {
-            for (var i=0; i<$scope.rumors.length; i++) {
-                var r = $scope.rumors[i];
-                if (newRumor.id===r.id) {
-                    updateRumor(r,newRumor);
-                    return true;
-                }
+            var el = $("#rumor_"+newRumor.id);
+            if (el.length) {
+                updateRumor(el,newRumor);
+                return true;
             }
             return false;
         };
 
-        var updateRumor = function(oldRumor,newRumor) {
-            oldRumor.order = newRumor.order;
-            oldRumor.version = count;
+        var updateRumor = function(rumorElement,newRumor) {
+            rumorElement.attr("version",count);
+            rumorElement.attr("order",newRumor.order);
+            rumorElement.removeClass("isNew");
         };
 
         var removeObsoleteRumors = function() {
-            for (var i=$scope.rumors.length-1; i>0; i--) {
-                var r = $scope.rumors[i];
-                if (!r.version || r.version<count) {
-                    $scope.rumors.splice(i,1);
-                }
-            }
+            isoContainer.isotope( 'remove', $(".rumor[version="+(count-1)+"]"));
         };
 
         var pollRumor = function() {

@@ -20,9 +20,9 @@ router.get('/locals/:lat/:long', function(req, res) {
     var bScore = score(b,now,req.params.lat,req.params.long);
     return aScore-bScore;
   });
-  var portions = results.slice(0,10);
+  var portions = results.slice(0,4);
   for (var i=0; i<portions.length; i++) {
-    portions[i].order=i;
+    portions[i].order=i+1;
   }
   res.json(portions);
 });
