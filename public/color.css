@@ -1,0 +1,30 @@
+.page-body > *:nth-child(0) {
+  background: #f3b200;
+}
+.page-body > *:nth-child(1) {
+  background: #632f00;
+}
+.page-body > *:nth-child(2) {
+  background: #4617b4;
+}
+.page-body > *:nth-child(3) {
+  background: #00c13f;
+}
+.page-body > *:nth-child(4) {
+  background: #aa40ff;
+}
+.page-body > *:nth-child(5) {
+  background: #91d100;
+}
+.page-body > *:nth-child(6) {
+  background: #fe7c22;
+}
+.page-body > *:nth-child(7) {
+  background: #77b900;
+}
+.page-body > *:nth-child(8) {
+  background: #b01e00;
+}
+.page-body > *:nth-child(9) {
+  background: #006ac1;
+}

@@ -48,21 +48,21 @@ angular.module('rumors.home', ['ngRoute', 'ngResource'])
 
         $scope.newRumor = {};
 
+      $scope.key = function(evt){
+          console.log(evt.keyCode);
+          if(evt.keyCode == 13){
+              $scope.pushRumor();
+          }
+      }
+
         var isoContainer = $('#rumors').isotope({
           itemSelector: '.rumor',
           layoutMode: 'masonry',
           masonry: {
             columnWidth: '.grid-sizer'
           },
-          getSortData: {
-            name: '.db', // text from querySelector
-            category: '[data-category]', // value of attribute
-            weight: function (itemElem) { // function
-              var weight = $(itemElem).find('.db').text();
-              return parseFloat(weight.replace(/[\(\)]/g, ''));
-            }
-          },
-          sortBy: 'db'
+          getSortData: {},
+          sortBy: 'number'
         });
 
         $scope.pushRumor = function() {

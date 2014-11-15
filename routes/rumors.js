@@ -32,7 +32,7 @@ router.post('/locals/push', function(req, res) {
   newRumor.time = new Date();
   console.log("put msg ",newRumor);
   rumorsData.push(newRumor);
-  if (rumorsData.length>40) {
+  if (rumorsData.length>20) {
     rumorsData.splice(0,1);
   }
   res.json({
