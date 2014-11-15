@@ -8,32 +8,34 @@ angular.module('rumors.home', ['ngRoute', 'ngResource'])
       controller: 'HomeCtrl'
     });
   }])
-  .factory('rumorsService', ['$resource', '$q', function ($resource, $q) {
+    .factory('rumorsService', ['$resource','$q','$http', function ($resource,$q,$http) {
 
-    var localRumors = $resource("rumors/locals/:lat/:long");
+        var Rumor = $resource("rumors/locals/:lat/:long");
 
-    return {
-      getRumors: function () {
-        var defer = $q.defer();
-        localRumors.query({
-          lat: 12,
-          long: 23
-        }, function (data) {
-          defer.resolve(data);
-        });
-        return defer.promise;
-      }
-    };
+        return {
 
-  }])
-  .controller('HomeCtrl', ['$scope', 'rumorsService', '$timeout', function ($scope, rumorsService, $timeout) {
+            pushRumor: function(rumor) {
+                return $http.post("rumors/locals/push",rumor);
+            },
 
-    $scope.rumors = [
-      {sender: "LP", msg: "mock message1", db: 12},
-      {sender: "AK", msg: "mock message2", db: 1},
-      {sender: "FF", msg: "this is a message", db: 13},
-      {sender: "FF", msg: "this is a message", db: 23}
-    ];
+            getRumors: function() {
+                var defer = $q.defer();
+                Rumor.query({
+                    lat: 12,
+                    long: 23
+                },function(data) {
+                    defer.resolve(data);
+                });
+                return defer.promise;
+            }
+        };
+
+    }])
+    .controller('HomeCtrl', ['$scope','rumorsService','$timeout', function ($scope,rumorsService,$timeout) {
+
+        $scope.rumors = [];
+
+        $scope.newRumor = {};
 
     var container = $('#rumors').isotope({
       itemSelector: '.rumor',
@@ -50,23 +52,69 @@ angular.module('rumors.home', ['ngRoute', 'ngResource'])
         }
       },
       sortBy: 'db'
-    })
+    });
 
-    var mergeRumors = function (newRumors) {
-      container.isotope();
-      console.log(newRumors);
-    };
+        $scope.pushRumor = function() {
+            $scope.newRumor.id = guid();
+            $scope.newRumor.lat=123;
+            $scope.newRumor.long=9999;
+            rumorsService.pushRumor($scope.newRumor);
+            $scope.newRumor = {};
+        };
 
-    var pollRumor = function () {
-      $timeout(function () {
-        rumorsService.getRumors().then(function (rumors) {
-          mergeRumors(rumors);
-          pollRumor();
-        });
-      }, 1000, true);
-    };
+        var mergeRumors = function(newRumors) {
+            for (var i=0; i<newRumors.length; i++) {
+                var r = newRumors[i];
+                if (!mergeRumor(r)) {
+                    $scope.rumors.push(r);
+                }
+            }
+            removeObsoleteRumors();
+        };
 
-    pollRumor();
+        var mergeRumor = function(newRumor) {
+            for (var i=0; i<$scope.rumors.length; i++) {
+                var r = $scope.rumors[i];
+                if (newRumor.id===r.id) {
+                    updateRumor(r,newRumor);
+                    return true;
+                }
+            }
+            return false;
+        };
 
-  }])
+        var updateRumor = function(oldRumor,newRumor) {
+
+        };
+
+        var removeObsoleteRumors = function() {
+            for (var i=0; i<$scope.rumors.length; i++) {
+                var r = $scope.rumors[i];
+            }
+        };
+
+        var pollRumor = function() {
+            $timeout(function() {
+                rumorsService.getRumors().then(function(rumors) {
+                    mergeRumors(rumors);
+                    pollRumor();
+                });
+            },1000,true);
+        };
+
+        pollRumor();
+
+        var guid = (function() {
+            function s4() {
+                return Math.floor((1 + Math.random()) * 0x10000)
+                    .toString(16)
+                    .substring(1);
+            }
+            return function() {
+                return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+                    s4() + '-' + s4() + s4() + s4();
+            };
+        })();
+
+    }])
 ;
