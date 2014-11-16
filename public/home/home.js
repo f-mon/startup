@@ -114,12 +114,21 @@ angular.module('rumors.home', ['ngRoute', 'ngResource'])
             el.attr("order",r.order);
             el.attr("version",r.version);
           el.css("background", r.color);
-            var html= "<div class='sender lp'>US</div>"+
-                "<div class='msg'>"+r.msg+"</div>"+
-                "<div class='db'><span class='icon-volume'>"+r.order+"db</div>"+
-                "<div class='distance'><span class='icon-location' style='color: red'></span>32 mt</div>"+
-                "<div class='commentsCount'><span class='icon-pencil' style='color: #f2f2f2'></span>12</div>"+
-                "<div class='echosCount'><span class='icon-echo' style='font-size: 1em'></span>7</div>";
+            var html=
+              "<div class='sender lp'></div>"+
+          "<div class='echo_button'></div>"+
+          "<div class='msg'>"+r.msg+"</div>"+
+          "<div class='status_bar'>"+
+          "<span class='icon-location status_bar_img'></span>"+
+          "<span class='status_bar_value'>12</span>"+
+          "<span class='status_bar_unit'>m</span>"+
+          "<span class='icon-pencil status_bar_img'></span>"+
+          "<span class='status_bar_value'>8</span>"+
+          "<span class='status_bar_unit'>replies</span>"+
+          "<span class='icon-volume status_bar_img'></span>"+
+          "<span class='status_bar_value'>80</span>"+
+          "<span class='status_bar_unit'>db</span>"+
+          "</div>";
             el.append(html);
             el.element=el;
             return el;

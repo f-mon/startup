@@ -67,13 +67,17 @@ html, body {
 }
 
 .rumor {
+    position: relative;
     display: inline-block;
     box-sizing: border-box;
     padding: 4px;
-    width: 50%;
+    width: 48%;
     height: 100px;
     background-color: #088AD9;
     overflow: hidden;
+    margin: 2px;
+    margin-bottom: 4px;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
 }
 
 .rumor > * {
@@ -82,7 +86,7 @@ html, body {
 }
 
 .rumor.double-width{
-    width: 100%;
+    width: 96%;
 }
 
 .rumor.double-height{
@@ -93,43 +97,92 @@ html, body {
 .sender {
     box-sizing: border-box;
     display: inline-block;
-    border-radius: 50%;
-    box-shadow: 2px 2px 2px black;
-    width: 40px;
-    height: 40px;
-    background-color: #4617b4;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+    width: 20px;
+    height: 20px;
+    background-color: #FF5252;
     text-align: center;
     color: #ffffff;
-    line-height: 40px;
+    line-height: 20px;
 }
 
 .sender.lp{
     background-image: url('img/rumoors-white.svg');
     background-repeat: no-repeat;
-    background-size: 24px;
+    background-size: 16px;
     background-position: center;
     color: rgba(0,0,0,0);
 }
 
 .msg {
-    margin-top: 2px;
+    position: absolute;
+    top: 4px;
+    left: 32px;
+    right: 4px;
     color: #ffffff;
-    font-size: 0.8em;
-    font-weight: bold;
-    max-height: 32px;
+    font-size: 12px;
+    font-weight: normal;
+    max-height: 64px;
     text-overflow: ellipsis;
     overflow: hidden;
-
 }
 
-.db {
-    color: #fafafa;
-    position: absolute;
-    top: 2px;
-    right: 2px;
-    font-size: 0.7em;
+.rumor.double-width > .msg{
+    font-size: 13px;
+    font-weight: bold;
+    right: 48px;
+}
+
+.echo_button{
+     position: absolute;
+     box-sizing: border-box;
+     display: inline-block;
+     border-radius: 50%;
+     box-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+     top: 40px;
+     width: 20px;
+     height: 20px;
+     left: 4px;
+     text-align: center;
+     color: #ffffff;
+     line-height: 20px;
+     background-color: #2979FF;
+     background-image: url('img/echo-white.svg');
+     background-repeat: no-repeat;
+     background-size: 16px;
+     background-position: center;
+ }
+
+.rumor.double-width > .echo_button{
+    width: 32px;
     height: 32px;
-    line-height: 32px;
+    top: 18px;
+    left: auto;
+    right: 8px;
+}
+
+.status_bar{
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    height: 24px;
+    background-color: #f6f6f6;
+    line-height: 24px;
+}
+
+.status_bar_img{
+    color: #FF5252;
+}
+
+.status_bar_value{
+    color: #000000;
+    line-height: 24px;
+}
+
+.status_bar_unit{
+    color: #878787;
+    line-height: 24px;
 }
 
 .order{display: none}
